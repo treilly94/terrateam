@@ -25,27 +25,17 @@ stacks:
   names:
     dev:
       tag_query: "dev"
-      variables:
-        environment: development
       rules:
         auto_apply: true # Auto-apply for rapid development
 
     staging:
       tag_query: "staging"
-      variables:
-        environment: staging
       rules:
         apply_after:
           - dev # Can only apply after dev succeeds
 
     production:
       tag_query: "prod"
-      variables:
-        environment: production
       rules:
         apply_after:
           - staging # Requires staging to be applied first
-
-workflows:
-  - tag_query: ""
-    environment: "${environment}"
