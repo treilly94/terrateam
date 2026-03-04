@@ -8,6 +8,9 @@ drift:
       schedule: daily
 
 dirs:
+  app1/module:
+    when_modified:
+      file_patterns: []
   app1/prod/**:
     tags:
       - prod
