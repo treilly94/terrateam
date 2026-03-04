@@ -6,3 +6,27 @@ drift:
     default:
       tag_query: ""
       schedule: daily
+
+dirs:
+  app1/prod/**:
+    tags:
+      - prod
+  app1/dev/**:
+    tags:
+      - dev
+
+workflows:
+  - tag_query: prod
+    plan:
+      - type: init
+      - type: plan
+    apply:
+      - type: init
+      - type: apply
+  - tag_query: dev
+    plan:
+      - type: init
+      - type: plan
+    apply:
+      - type: init
+      - type: apply
