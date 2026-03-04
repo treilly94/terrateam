@@ -39,3 +39,14 @@ stacks:
       rules:
         apply_after:
           - staging # Requires staging to be applied first
+
+workflows:
+  - tag_query: ""
+    plan:
+      - type: init
+      - type: plan
+      - type: checkov
+      - type: env
+        name: CONFTEST_POLICY
+        cmd: ["echo", "$TERRATEAM_ROOT/policy/"]
+      - type: conftest
