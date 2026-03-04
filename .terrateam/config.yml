@@ -1,0 +1,8 @@
+cost_estimation:
+  enabled: true
+drift:
+  enabled: true
+  schedules:
+    default:
+      tag_query: ""
+      schedule: daily
