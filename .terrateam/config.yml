@@ -37,6 +37,8 @@ workflows:
       - type: init
       - type: plan
       - type: checkov
+      - type: conftest
+        extra_args: ["--policy", "$TERRATEAM_ROOT/policies/"]
 
 cost_estimation:
   enabled: true
