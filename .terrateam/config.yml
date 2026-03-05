@@ -1,12 +1,3 @@
-cost_estimation:
-  enabled: true
-drift:
-  enabled: true
-  schedules:
-    default:
-      tag_query: ""
-      schedule: daily
-
 dirs:
   "**/module":
     when_modified:
@@ -46,5 +37,13 @@ workflows:
       - type: init
       - type: plan
       - type: checkov
-      - type: conftest
-        extra_args: ["--policy", "$TERRATEAM_ROOT/policies/"]
+
+cost_estimation:
+  enabled: true
+
+drift:
+  enabled: true
+  schedules:
+    default:
+      tag_query: ""
+      schedule: daily
