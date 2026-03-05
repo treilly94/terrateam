@@ -46,7 +46,5 @@ workflows:
       - type: init
       - type: plan
       - type: checkov
-      - type: env
-        name: CONFTEST_POLICY
-        cmd: ["echo", "$TERRATEAM_ROOT/policies/"]
       - type: conftest
+        extra_args: ["--policy", "$TERRATEAM_ROOT/policies/"]
