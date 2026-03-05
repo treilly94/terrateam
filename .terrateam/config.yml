@@ -1,14 +1,14 @@
 dirs:
-  "**/module":
+  module/**:
     when_modified:
       file_patterns: []
-  "**/dev":
+  dev/**:
     tags:
       - dev
-  "**/staging":
+  staging/**:
     tags:
       - staging
-  "**/prod":
+  prod/**:
     tags:
       - prod
 
@@ -37,6 +37,9 @@ workflows:
       - type: init
       - type: plan
       - type: checkov
+    apply:
+      - type: init
+      - type: apply
 
 cost_estimation:
   enabled: true
